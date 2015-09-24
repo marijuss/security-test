@@ -1,0 +1,28 @@
+#default:
+#    path:     /
+#    defaults: { _controller: admin.controller.auth:index }
+#    path: /
+#    defaults: { _controller: AdminBundle:Login:index, _locale: en }
+
+#main:
+#    path:     /
+#    defaults: { _controller: app.controller.security:redirectAction }
+##    permanent: true
+
+security_login:
+    path: /login
+    defaults: { _controller: app.controller.security:loginAction }
+
+security_login_check:
+    pattern: /login_check
+    defaults: { _controller: app.controller.security:loginCheckAction }
+
+security_logout:
+    path: /logout
+#    defaults: { _controller: app.controller.security:logoutAction }
+
+#pageNotFound:
+#    pattern:  /{path}
+#    defaults: { _controller: admin.controller.auth:indexAction }
+#    requirements:
+#        path: .*

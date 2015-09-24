@@ -1,0 +1,19 @@
+services:
+    app.controller.security:
+        class: AppBundle\Controller\SecurityController
+        calls:
+            - [setContainer, ["@service_container"]]
+#        arguments:
+#            - "@admin.system.business.company"
+
+    app.controller.secure:
+        class: AppBundle\Controller\SecureController
+        calls:
+            - [setContainer, ["@service_container"]]
+
+    app.controller.anonymous:
+        class: AppBundle\Controller\AnonymousController
+        calls:
+            - [setContainer, ["@service_container"]]
+        arguments:
+            - "@app.business.participant"

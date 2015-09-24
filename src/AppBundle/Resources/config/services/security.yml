@@ -1,0 +1,23 @@
+services:
+    admin.security.user_provider:
+        class: AppBundle\Security\User\UserProvider
+#        arguments:
+#            - "@integration.repository.company"
+
+    admin.security.login_success_handler:
+        class:  AppBundle\Security\User\LoginSuccessHandler
+        arguments:  [@router, @security.context]
+#        tags:
+#            - { name: 'monolog.logger', channel: 'security' }
+
+#    admin.security.session_idle_handler:
+#        class: AdminBundle\Handler\AdminSessionIdleHandler
+#        calls:
+#            - [setRequestStack, [@request_stack]]
+#        arguments:
+#            - "@session"
+#            - "@security.context"
+#            - "@router"
+#            - %session_max_idle_time%
+#        tags:
+#            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }

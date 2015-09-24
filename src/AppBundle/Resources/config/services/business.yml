@@ -1,0 +1,5 @@
+services:
+    app.business.participant:
+        class: AppBundle\Services\ParticipantService
+        arguments:
+            - "@app.repository.participant"

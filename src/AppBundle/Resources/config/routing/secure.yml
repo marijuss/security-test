@@ -1,0 +1,12 @@
+secure_index:
+    path:     /
+    defaults: { _controller: app.controller.secure:indexAction }
+
+secure_test1:
+    path:     /test1
+    defaults: { _controller: app.controller.secure:test1Action }
+
+secure_test2:
+    path:     /test2
+    defaults: { _controller: app.controller.secure:test2Action }
+    methods:  [POST, PUT]

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{% trans %}Security test{% endtrans %}{% endblock %}</title>
+    <link href="{{ asset('favicon.ico') }}" rel="shortcut icon" />
+    {% block head %}{% endblock %}
+</head>
+<body>
+    <div id="wrapper">
+        {% block header %}{% endblock %}
+        {% block body %}{% endblock %}
+        {% block footer %}{% endblock %}
+    </div>
+    {% if app.environment == 'dev' %}
+        <script type='text/javascript' id="__bs_script__">//<![CDATA[
+            document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.2.7.1.js'><\/script>".replace("HOST", location.hostname));
+        //]]></script>
+    {% endif %}
+</body>
+</html>

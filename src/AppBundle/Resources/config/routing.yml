@@ -1,0 +1,15 @@
+default:
+    pattern:  /
+    defaults: { _controller: app.controller.anonymous:showRegistrationAction }
+
+security:
+    resource: "@AppBundle/Resources/config/routing/security.yml"
+    prefix:   /security
+
+secure:
+    resource: "@AppBundle/Resources/config/routing/secure.yml"
+    prefix:   /secure
+
+annonymous:
+    resource: "@AppBundle/Resources/config/routing/anonymous.yml"
+    prefix:   /anonymous

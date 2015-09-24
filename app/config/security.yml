@@ -1,0 +1,52 @@
+# use this to check if dependencies have any vulnerabilities and must be updated.
+# php app/console security:check
+
+security:
+
+    providers:
+#        in_memory:
+#            memory:
+#                users:
+#                    ryan:
+#                        password: ryanpass
+#                        roles: 'ROLE_USER'
+#                    admin:
+#                        password: kitten
+#                        roles: 'ROLE_ADMIN'
+        db_provider:
+            entity:
+                class: AppBundle:Participant
+                property: email
+
+    encoders:
+#        Symfony\Component\Security\Core\User\User: plaintext
+        AppBundle\Entity\Participant: sha512
+
+    firewalls:
+        # disables authentication for assets and the profiler, adapt it according to your needs
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        default:
+            # TODO: research this
+            pattern: ^/
+            # activate different ways to authenticate
+            # TODO: loops without this. research
+            anonymous: ~
+#            http_basic: ~
+            provider: db_provider
+            form_login:
+                # login and check_login routes
+                login_path: security_login
+                check_path: security_login_check
+                # maps form parameters to security layer
+                csrf_parameter: "login[_token]"
+                username_parameter: "login[email]"
+                password_parameter: "login[password]"
+            logout:
+                path: security_logout
+                target: security_login
+
+    access_control:
+        - { path: ^/secure, roles: ROLE_USER }

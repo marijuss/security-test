@@ -1,0 +1,21 @@
+anonymous_index:
+    path:     /
+    defaults: { _controller: app.controller.anonymous:indexAction }
+
+anonymous_test1:
+    path:     /test1
+    defaults: { _controller: app.controller.anonymous:test1Action }
+
+anonymous_test2:
+    path:     /test2
+    defaults: { _controller: app.controller.anonymous:test2Action }
+    methods:  [POST, PUT]
+
+anonymous_show_registration:
+    path:     /registration
+    defaults: { _controller: app.controller.anonymous:showRegistrationAction }
+
+anonymous_register:
+    path:     /register
+    defaults: { _controller: app.controller.anonymous:registerAction }
+    methods:  [POST, PUT]

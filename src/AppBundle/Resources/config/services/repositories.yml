@@ -1,0 +1,10 @@
+services:
+    app.repository.base:
+        class: AppBundle\Repository\BaseRepository
+        factory_service: doctrine.orm.entity_manager
+        factory_method: getRepository
+
+    app.repository.participant:
+        parent: app.repository.base
+        arguments:
+            - AppBundle\Entity\Participant
